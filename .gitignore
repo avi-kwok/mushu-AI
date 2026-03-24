@@ -1,7 +1,7 @@
 # Backend
 backend/.env
 backend/__pycache__/
-backend/chroma_db/
+# backend/chroma_db/  # included in repo for deployment
 backend/.venv/
 
 # Frontend

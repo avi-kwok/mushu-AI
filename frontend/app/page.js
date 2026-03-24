@@ -82,20 +82,20 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col py-12 px-6">
+    <div className="h-[100dvh] flex flex-col py-6 px-4 sm:py-12 sm:px-6">
       {/* Header */}
-      <div className="max-w-2xl mx-auto w-full mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-green-300">
+      <div className="max-w-2xl mx-auto w-full mb-4 sm:mb-8 shrink-0">
+        <h1 className="text-2xl sm:text-4xl font-bold text-green-300">
           Mushu Kwok AI
         </h1>
-        <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
+        <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 sm:mt-2 leading-relaxed">
           Ask Mushu anything - Avidan Kwok's real life dog in AI form
         </p>
       </div>
 
       {/* Chat window */}
-      <div className="max-w-2xl mx-auto w-full flex-1 flex flex-col gap-4">
-        <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-6 min-h-80 flex flex-col gap-4 overflow-y-auto max-h-[520px]">
+      <div className="max-w-2xl mx-auto w-full flex-1 flex flex-col gap-3 min-h-0">
+        <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 p-4 sm:p-6 flex-1 flex flex-col gap-4 overflow-y-auto">
           {messages.length === 0 ? (
             <p className="text-slate-500 dark:text-slate-400 text-sm">Ask something to start…</p>
           ) : (

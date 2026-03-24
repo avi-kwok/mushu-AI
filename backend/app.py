@@ -9,7 +9,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 from langchain_chroma import Chroma
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain.embeddings.base import Embeddings
+from chromadb.utils.embedding_functions import ONNXMiniLM_L6_V2
+
+class ONNXEmbeddings(Embeddings):
+    def __init__(self):
+        self._fn = ONNXMiniLM_L6_V2()
+    def embed_documents(self, texts):
+        return self._fn(texts)
+    def embed_query(self, text):
+        return self._fn([text])[0]
 
 app = FastAPI()
 
@@ -25,7 +34,6 @@ MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 DB_DIR = os.getenv("CHROMA_DIR", "./chroma_db")
-EMBED_MODEL = os.getenv("EMBED_MODEL", "sentence-transformers/all-MiniLM-L6-v2")
 TOP_K = int(os.getenv("RAG_TOP_K", "4"))
 COLLECTION = os.getenv("CHROMA_COLLECTION", "avikwok")
 
@@ -86,7 +94,7 @@ def get_db() -> Chroma:
             raise RuntimeError(
                 f"Chroma DB directory not found at {DB_DIR}. Run `python ingest.py` first."
             )
-        _embeddings = HuggingFaceEmbeddings(model_name=EMBED_MODEL)
+        _embeddings = ONNXEmbeddings()
         _db = Chroma(
             persist_directory=DB_DIR,
             collection_name=COLLECTION,
