@@ -78,7 +78,7 @@ class Msg(BaseModel):
 class ChatIn(BaseModel):
     messages: List[Msg]
 
-_embeddings: Optional[HuggingFaceEmbeddings] = None
+_embeddings: Optional[ONNXEmbeddings] = None
 _db: Optional[Chroma] = None
 
 def sanitize_context(text: str) -> str:
