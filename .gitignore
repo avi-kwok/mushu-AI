@@ -1,0 +1,10 @@
+# Backend
+backend/.env
+backend/__pycache__/
+backend/chroma_db/
+backend/.venv/
+
+# Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
