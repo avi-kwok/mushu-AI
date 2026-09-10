@@ -30,7 +30,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-MODEL = os.getenv("GROQ_MODEL", "llama-3.1-8b-instant")
+MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 DB_DIR = os.getenv("CHROMA_DIR", "./chroma_db")

@@ -10,7 +10,7 @@ Chat with Mushu, my real life Schnoodle dog! The chatbot uses Retrieval-Augmente
 
 - **Frontend:** Next.js, Tailwind CSS
 - **Backend:** FastAPI (Python), streaming responses via SSE
-- **LLM:** Groq API (Llama 3.1 8B)
+- **LLM:** Groq API (GPT-OSS 20B)
 - **RAG:** ChromaDB with ONNX embeddings (all-MiniLM-L6-v2)
 - **Deployment:** Vercel (frontend) + Railway (backend)
 
